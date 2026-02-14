@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #F5F0E8;
+  --cream-dark: #EBE4D8;
+  --coffee: #3D2914;
+  --coffee-light: #5C4228;
+  --gold: #B8860B;
+  --gold-light: #D4A84B;
+  --burgundy: #722F37;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream text-coffee antialiased;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+/* Subtle Ethiopian-inspired geometric pattern */
+.pattern-band {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 8px,
+    rgba(61, 41, 20, 0.04) 8px,
+    rgba(61, 41, 20, 0.04) 10px
+  );
+}
+
+/* Selection */
+::selection {
+  @apply bg-coffee/20 text-coffee;
+}
