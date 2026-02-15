@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Image, { ImageProps } from "next/image";
 
-type ImageWithFallbackProps = ImageProps & {
+type ImageWithFallbackProps = Omit<ImageProps, "src"> & {
+  src: ImageProps["src"] | Array<ImageProps["src"]>;
   fallbackClassName?: string;
 };
 
@@ -13,9 +14,11 @@ export default function ImageWithFallback({
   fallbackClassName = "bg-cream-dark",
   ...props
 }: ImageWithFallbackProps) {
+  const sources = Array.isArray(src) ? src : [src];
+  const [index, setIndex] = useState(0);
   const [error, setError] = useState(false);
 
-  if (error || !src) {
+  if (error || !sources[index]) {
     return (
       <div
         className={`flex items-center justify-center ${fallbackClassName}`}
@@ -28,9 +31,15 @@ export default function ImageWithFallback({
 
   return (
     <Image
-      src={src}
+      src={sources[index]}
       alt={alt}
-      onError={() => setError(true)}
+      onError={() => {
+        if (index < sources.length - 1) {
+          setIndex(index + 1);
+        } else {
+          setError(true);
+        }
+      }}
       {...props}
     />
   );

@@ -2,11 +2,22 @@
 
 export const IMAGES = {
   hero: {
-    cups1: "/assets/hero-cups-1.png",
-    cups2: "/assets/hero-cups-2.png",
+    bags: "/assets/hero-bags.png",
   },
   about: "/assets/about-origin.png",
   packaging: "/assets/packaging.png",
+  packagingGallery: [
+    "/assets/packaging.png",
+    "/assets/packaging-1.png",
+    "/assets/packaging-2.png",
+    "/assets/packaging-3.png",
+    "/assets/packaging-4.png",
+  ],
+  quality: {
+    origin: "/assets/about-origin.png",
+    cherries: "/assets/about-origin.png",
+    process: "/assets/packaging.png",
+  },
   coffees: {
     jimma: "/assets/jimma.png",
     guji: "/assets/guji.png",

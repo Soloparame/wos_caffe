@@ -36,15 +36,19 @@ export default function Contact() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center"
+          className="flex flex-col items-center text-center"
         >
-          <span className="font-sans text-sm font-medium uppercase tracking-widest text-gold">
-            Contact
-          </span>
-          <h2 className="mt-2 font-serif text-3xl font-semibold text-coffee sm:text-4xl">
+          <div className="flex w-full max-w-md items-center gap-4">
+            <span className="h-px flex-1 bg-coffee/20" aria-hidden />
+            <span className="font-sans text-sm font-medium uppercase tracking-widest text-gold">
+              Contact
+            </span>
+            <span className="h-px flex-1 bg-coffee/20" aria-hidden />
+          </div>
+          <h2 className="mt-4 font-serif text-3xl font-semibold text-coffee sm:text-4xl">
             Get in Touch
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl font-sans text-base text-coffee-muted">
+          <p className="mx-auto mt-3 max-w-2xl font-sans text-base text-coffee-muted">
             For orders, partnerships, or inquiries, we&apos;d love to hear from you.
           </p>
         </motion.div>

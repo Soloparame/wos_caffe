@@ -19,6 +19,9 @@ html {
 body {
   @apply bg-cream text-coffee antialiased;
   font-feature-settings: "kern" 1, "liga" 1;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(33, 40%, 96%, 1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(33, 40%, 96%, 1) 0, transparent 50%);
 }
 
 /* Subtle Ethiopian-inspired geometric pattern */
@@ -32,7 +35,16 @@ body {
   );
 }
 
+/* Glassmorphism utility */
+.glass {
+  @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-glass;
+}
+
+.glass-dark {
+  @apply bg-coffee/80 backdrop-blur-md border border-white/10 shadow-glass text-cream;
+}
+
 /* Selection */
 ::selection {
-  @apply bg-coffee/20 text-coffee;
+  @apply bg-gold/30 text-coffee;
 }

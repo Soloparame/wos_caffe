@@ -21,7 +21,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Woscaffe — From the Birthplace of Coffee to Your Cup",
   description:
-    "Premium Ethiopian coffee. 100% Arabica from Ethiopia's most celebrated regions. Authentic, ethically sourced, export-ready.",
+    "Premium Ethiopian coffee. Single-origin from Ethiopia's most celebrated regions. Authentic, ethically sourced, export-ready.",
   openGraph: {
     title: "Woscaffe — Authentic Ethiopian Coffee",
     description: "From the Birthplace of Coffee to Your Cup.",

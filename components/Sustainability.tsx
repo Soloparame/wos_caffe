@@ -36,29 +36,36 @@ export default function Sustainability() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center"
+          className="flex flex-col items-center text-center"
         >
-          <span className="font-sans text-sm font-medium uppercase tracking-widest text-gold">
-            Sustainability
-          </span>
-          <h2 className="mt-2 font-serif text-3xl font-semibold text-coffee sm:text-4xl">
+          <div className="flex w-full max-w-md items-center gap-4">
+            <span className="h-px flex-1 bg-coffee/20" aria-hidden />
+            <span className="font-sans text-sm font-medium uppercase tracking-widest text-gold">
+              Sustainability
+            </span>
+            <span className="h-px flex-1 bg-coffee/20" aria-hidden />
+          </div>
+          <h2 className="mt-4 font-serif text-3xl font-semibold text-coffee sm:text-4xl">
             Wholesome Coffee, Ethically Sourced
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl font-sans text-base text-coffee-muted">
+          <p className="mx-auto mt-3 max-w-2xl font-sans text-base text-coffee-muted">
             Our commitment to people and place is at the heart of Woscaffe.
           </p>
         </motion.div>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
           {pillars.map((pillar, i) => (
             <motion.div
               key={pillar.title}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="rounded-xl border border-coffee/10 bg-cream-dark/40 p-6"
+              className="rounded-2xl border border-coffee/10 bg-cream-dark/40 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
             >
-              <h3 className="font-serif text-xl font-semibold text-coffee">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gold/15 text-gold">
+                <span className="font-serif text-lg font-semibold">{i + 1}</span>
+              </div>
+              <h3 className="mt-4 font-serif text-xl font-semibold text-coffee">
                 {pillar.title}
               </h3>
               <p className="mt-3 font-sans text-sm leading-relaxed text-coffee-muted">
