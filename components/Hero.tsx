@@ -12,7 +12,6 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen overflow-hidden bg-coffee -mt-20 pt-20"
     >
-      {/* Full-bleed background: extends behind navbar */}
       <div className="absolute inset-0">
         <ImageWithFallback
           src={heroBgImage}
@@ -23,18 +22,10 @@ export default function Hero() {
           priority
           unoptimized
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/35" aria-hidden />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-4xl flex-col items-center justify-center px-4 pt-6 pb-16 lg:px-8 lg:pb-20">
-        <div className="w-full text-center">
-          <div className="flex w-full max-w-md mx-auto items-center gap-4">
-            <span className="h-px flex-1 bg-white/30" aria-hidden />
-            <span className="font-sans text-sm font-medium uppercase tracking-widest text-gold">
-              Woscaffe
-            </span>
-            <span className="h-px flex-1 bg-white/30" aria-hidden />
-          </div>
+      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl flex-col items-center justify-center px-4 pt-6 pb-16 lg:px-8 lg:pb-20">
+        <div className="w-full text-left max-w-xl sm:max-w-lg self-start ml-12 sm:ml-28 lg:ml-44 xl:ml-56">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -43,19 +34,21 @@ export default function Hero() {
           >
             Experience the Art of Coffee
           </motion.h1>
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-4 max-w-2xl text-lg text-white/90 font-sans mx-auto"
+            className="mt-4 max-w-sm sm:max-w-md text-lg text-white/90 font-sans leading-relaxed space-y-1.5"
           >
-            From the birthplace of coffee to your cup. Explore our premium selection of handcrafted Ethiopian beans, ethically sourced and roasted to perfection.
-          </motion.p>
+            <span className="block">From the birthplace of coffee to your cup.</span>
+            <span className="block">Explore our premium selection of handcrafted Ethiopian beans,</span>
+            <span className="block">ethically sourced and roasted to perfection.</span>
+          </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-8 flex flex-wrap items-center justify-center gap-4"
+            className="mt-8 flex flex-wrap items-center justify-start gap-4"
           >
             <Link
               href="/products"

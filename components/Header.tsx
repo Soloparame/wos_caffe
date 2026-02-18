@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -18,22 +18,28 @@ export default function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const hero = document.getElementById("home");
+    let cleanup: (() => void) | null = null;
     if (!hero) {
       const onScroll = () => setOverHero(window.scrollY < 80);
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
-      return () => window.removeEventListener("scroll", onScroll);
+      cleanup = () => window.removeEventListener("scroll", onScroll);
+    } else {
+      const observer = new IntersectionObserver(
+        ([entry]) => setOverHero(entry.isIntersecting),
+        { root: null, threshold: 0.01, rootMargin: "-64px 0px 0px 0px" }
+      );
+      observer.observe(hero);
+      cleanup = () => observer.disconnect();
     }
-    const observer = new IntersectionObserver(
-      ([entry]) => setOverHero(entry.isIntersecting),
-      { root: null, threshold: 0.01, rootMargin: "-64px 0px 0px 0px" }
-    );
-    observer.observe(hero);
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      if (cleanup) cleanup();
+    };
+  }, [pathname]);
 
   return (
     <header

@@ -71,6 +71,42 @@ export const coffees = [
     image: "/assets/gishen.png",
     color: "burgundy",
   },
+  {
+    id: "mothers-gift",
+    region: "Mother's Gift",
+    slogan: "My Comfort",
+    description:
+      "A premium 100% organic Ethiopian decaf crafted for unwinding after hours—silky, soothing, and satisfying without the caffeine. Gentle sweetness and a calm finish make it the perfect evening ritual.",
+    flavorNotes: ["Cocoa", "Caramel", "Nutty", "Smooth"],
+    altitude: "1,700–2,100m",
+    processing: "Washed (Decaf)",
+    image: "/assets/photo_2026-02-15_18-01-52.jpg",
+    color: "purple",
+  },
+  {
+    id: "harar",
+    region: "Harar",
+    slogan: "My Crown",
+    description:
+      "Regal and expressive, Harar shines with winey fruit and spice—an origin that elevates your taste with historic character and vibrant complexity.",
+    flavorNotes: ["Blueberry", "Citrus", "Spice", "Winey"],
+    altitude: "1,800–2,100m",
+    processing: "Natural & Washed",
+    image: "/assets/photo_2026-02-18_20-34-34.jpg",
+    color: "gold",
+  },
+  {
+    id: "after-hours",
+    region: "After Hours",
+    slogan: "My Night",
+    description:
+      "A premium Ethiopian blend for the late-day moment—smooth, rich, and lingering. Balanced depth with a velvety mouthfeel for reflective nights and unhurried conversations.",
+    flavorNotes: ["Smooth", "Rich", "Chocolate", "Vanilla"],
+    altitude: "1,700–2,200m",
+    processing: "Natural & Washed",
+    image: "/assets/photo_2026-02-18_20-40-24.jpg",
+    color: "burgundy",
+  },
 ];
 
 export const brewingMethods = [
