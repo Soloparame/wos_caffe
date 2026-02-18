@@ -51,13 +51,13 @@ export default function Hero() {
             className="mt-8 flex flex-wrap items-center justify-center gap-4"
           >
             <Link
-              href="#products"
+              href="/products"
               className="inline-flex items-center gap-2 rounded-lg border-2 border-white bg-transparent px-8 py-3.5 font-sans text-sm font-semibold text-white transition-colors hover:bg-white hover:text-coffee"
             >
               Shop Now
             </Link>
             <Link
-              href="#wholesale"
+              href="/about#wholesale"
               className="inline-flex items-center gap-2 rounded-lg border border-white/60 bg-transparent px-8 py-3.5 font-sans text-sm font-semibold text-white/95 transition-colors hover:bg-white/10"
             >
               Become a Distributor

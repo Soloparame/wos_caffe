@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-4 lg:gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <Link href="#home" className="flex items-center gap-2 text-cream hover:opacity-90 transition-opacity">
+            <Link href="/" className="flex items-center gap-2 text-cream hover:opacity-90 transition-opacity">
               <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/5">
                 <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M2 21h18v-2H2v2zm18-4H2v-2h18v2zm0-4H2v-2h18v2zm0-6H2V5h18v2zm0-4H2V1h18v2z" /></svg>
               </span>
@@ -23,10 +23,10 @@ export default function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gold">Explore</h3>
             <ul className="mt-4 space-y-3">
               {[
-                { name: 'Products', href: '#products' },
-                { name: 'Our Story', href: '#about' },
-                { name: 'Quality & Process', href: '#quality' },
-                { name: 'Wholesale', href: '#wholesale' }
+                { name: 'Products', href: '/products' },
+                { name: 'Our Story', href: '/about' },
+                { name: 'Quality & Process', href: '/about' },
+                { name: 'Wholesale', href: '/about#wholesale' }
               ].map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="text-sm text-cream/70 hover:text-white hover:translate-x-1 transition-all inline-block">
@@ -42,7 +42,7 @@ export default function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gold">Support</h3>
             <ul className="mt-4 space-y-3">
               {[
-                { name: 'Contact Us', href: '#contact' },
+                { name: 'Contact Us', href: '/#contact' },
                 { name: 'Shipping Policy', href: '#' },
                 { name: 'Returns', href: '#' },
                 { name: 'Privacy Policy', href: '#' }

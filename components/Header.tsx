@@ -3,17 +3,21 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#products", label: "Products" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/products", label: "Products" },
+  { href: "/about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [overHero, setOverHero] = useState(true);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     const hero = document.getElementById("home");
@@ -40,7 +44,7 @@ export default function Header() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand */}
         <Link
-          href="#home"
+          href="/"
           className={`group flex items-center gap-3 no-underline ${
             overHero ? "text-cream" : "text-coffee"
           }`}
@@ -74,19 +78,44 @@ export default function Header() {
 
         {/* Right: search, cart, Sign in */}
         <div className="flex items-center gap-4">
-          <button
-            type="button"
-            className={`hidden sm:flex p-2 hover:text-gold transition-colors rounded-full ${
-              overHero ? "text-cream/80 hover:bg-white/10" : "text-coffee-muted hover:bg-coffee/5"
-            }`}
-            aria-label="Search"
-          >
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </button>
-          <button
-            type="button"
+          {searchOpen ? (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                router.push(`/products?q=${encodeURIComponent(query)}`);
+                setSearchOpen(false);
+                setQuery("");
+              }}
+              className="hidden sm:flex items-center gap-2 rounded-full border border-coffee/10 bg-cream px-3 py-1.5"
+            >
+              <input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search products"
+                className="bg-transparent outline-none font-sans text-sm text-coffee"
+              />
+              <button type="submit" className="text-coffee-muted hover:text-gold">
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </button>
+            </form>
+          ) : (
+            <button
+              type="button"
+              className={`hidden sm:flex p-2 hover:text-gold transition-colors rounded-full ${
+                overHero ? "text-cream/80 hover:bg-white/10" : "text-coffee-muted hover:bg-coffee/5"
+              }`}
+              onClick={() => setSearchOpen(true)}
+              aria-label="Search"
+            >
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
+          )}
+          <Link
+            href="/cart"
             className={`hidden sm:flex p-2 hover:text-gold transition-colors rounded-full relative ${
               overHero ? "text-cream/80 hover:bg-white/10" : "text-coffee-muted hover:bg-coffee/5"
             }`}
@@ -96,9 +125,9 @@ export default function Header() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
             <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-burgundy ring-2 ring-cream" />
-          </button>
+          </Link>
           <Link
-            href="#contact"
+            href="/login"
             className="hidden sm:inline-flex rounded-full bg-coffee px-6 py-2.5 font-sans text-sm font-medium text-cream shadow-soft transition-all hover:bg-coffee-light hover:shadow-medium hover:-translate-y-0.5"
           >
             Sign in
@@ -155,7 +184,7 @@ export default function Header() {
               ))}
               <hr className="my-2 border-coffee/10" />
               <Link
-                href="#contact"
+                href="/login"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block w-full text-center rounded-lg bg-coffee px-4 py-3 font-sans font-medium text-cream hover:bg-coffee-light"
               >
