@@ -25,7 +25,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl flex-col items-center justify-center px-4 pt-6 pb-16 lg:px-8 lg:pb-20">
-        <div className="w-full text-left max-w-xl sm:max-w-lg self-start ml-12 sm:ml-28 lg:ml-44 xl:ml-56">
+        <div className="w-full text-left max-w-xl sm:max-w-lg self-start ml-4 sm:ml-16 lg:ml-28 xl:ml-36">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
