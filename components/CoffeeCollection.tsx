@@ -47,19 +47,15 @@ export default function CoffeeCollection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="flex flex-col items-center text-center"
+          className="text-center"
         >
-          <div className="flex w-full max-w-md items-center gap-4">
-            <span className="h-px flex-1 bg-coffee/20" aria-hidden />
-            <span className="font-sans text-sm font-medium uppercase tracking-widest text-gold">
-              Coffee Collection
-            </span>
-            <span className="h-px flex-1 bg-coffee/20" aria-hidden />
-          </div>
-          <h2 className="mt-4 font-serif text-3xl font-semibold text-coffee sm:text-4xl">
+          <span className="font-sans text-sm font-medium uppercase tracking-widest text-gold">
+            Coffee Collection
+          </span>
+          <h2 className="mt-2 font-serif text-3xl font-semibold text-coffee sm:text-4xl">
             Six Origins, One Standard of Excellence
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl font-sans text-base text-coffee-muted">
+          <p className="mx-auto mt-4 max-w-2xl font-sans text-base text-coffee-muted">
             High-altitude Ethiopian coffee from 1,700m–2,300m. Each region
             brings a distinct character; all share our commitment to quality.
           </p>
@@ -79,9 +75,9 @@ export default function CoffeeCollection() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className={`snap-center min-w-[72%] sm:min-w-[42%] md:min-w-[32%] lg:min-w-[30%] xl:min-w-[28%] max-w-[320px] group flex flex-col overflow-hidden rounded-xl border ${cardColors[coffee.color] || "bg-cream/90 border-coffee/10"} shadow-soft hover:shadow-medium transition-transform duration-300 hover:-translate-y-1 backdrop-blur-sm`}
+                className={`snap-center min-w-[85%] sm:min-w-[55%] md:min-w-[40%] lg:min-w-[30%] xl:min-w-[28%] group flex flex-col overflow-hidden rounded-xl border ${cardColors[coffee.color] || "bg-cream/90 border-coffee/10"} shadow-soft hover:shadow-medium transition-transform duration-300 hover:-translate-y-1 backdrop-blur-sm`}
               >
-                <div className="relative aspect-[4/5] bg-cream">
+                <div className="relative aspect-[3/4] bg-cream">
                   <ImageWithFallback
                     src={coffee.image}
                     alt={`${coffee.region} — ${coffee.slogan}`}
@@ -92,27 +88,27 @@ export default function CoffeeCollection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-coffee/30 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                 </div>
-                <div className="flex flex-1 flex-col p-4">
-                  <div className="font-serif text-base font-semibold text-coffee">
+                <div className="flex flex-1 flex-col p-5">
+                  <div className="font-serif text-lg font-semibold text-coffee">
                     {coffee.region}
                   </div>
-                  <p className="mt-0.5 font-sans text-xs italic text-coffee-muted">
+                  <p className="mt-0.5 font-sans text-sm italic text-coffee-muted">
                     &ldquo;{coffee.slogan}&rdquo;
                   </p>
-                  <p className="mt-2 flex-1 font-sans text-xs leading-relaxed text-coffee-muted line-clamp-3">
+                  <p className="mt-3 flex-1 font-sans text-sm leading-relaxed text-coffee-muted">
                     {coffee.description}
                   </p>
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {coffee.flavorNotes.slice(0, 3).map((note) => (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {coffee.flavorNotes.map((note) => (
                       <span
                         key={note}
-                        className="rounded-full bg-coffee/10 px-2 py-0.5 font-sans text-[11px] font-medium text-coffee"
+                        className="rounded-full bg-coffee/10 px-2.5 py-0.5 font-sans text-xs font-medium text-coffee shadow-soft"
                       >
                         {note}
                       </span>
                     ))}
                   </div>
-                  <div className="mt-3 flex flex-wrap gap-x-3 gap-y-0.5 font-sans text-[11px] text-coffee-muted">
+                  <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 font-sans text-xs text-coffee-muted">
                     <span>Alt. {coffee.altitude}</span>
                     <span>{coffee.processing}</span>
                   </div>

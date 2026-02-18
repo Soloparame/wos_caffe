@@ -26,50 +26,44 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/35" aria-hidden />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-3xl flex-col items-center justify-center px-4 pt-6 pb-16 text-center lg:px-8 lg:pb-20">
-        <motion.span
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 font-sans text-xs font-medium uppercase tracking-widest text-white/95 backdrop-blur-sm"
-        >
-          From the Birthplace of Coffee
-        </motion.span>
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.08 }}
-          className="mt-5 font-serif text-4xl font-bold leading-[1.1] text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.4)] sm:text-5xl lg:text-6xl xl:text-7xl"
-        >
-          Experience the Art of Coffee
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.16 }}
-          className="mt-5 max-w-xl text-base text-white/90 font-sans leading-relaxed sm:text-lg mx-auto"
-        >
-          From the birthplace of coffee to your cup. Explore our premium selection of handcrafted Ethiopian beans, ethically sourced and roasted to perfection.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.24 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-4"
-        >
-          <Link
-            href="#products"
-            className="inline-flex items-center gap-2 rounded-lg border-2 border-white bg-white px-8 py-3.5 font-sans text-sm font-semibold text-coffee transition-all hover:bg-white/95 hover:border-white hover:shadow-lg"
+      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-4xl flex-col items-center justify-center px-4 pt-6 pb-16 lg:px-8 lg:pb-20">
+        <div className="w-full text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="font-serif text-4xl font-bold leading-tight text-white drop-shadow-lg sm:text-5xl lg:text-6xl xl:text-7xl"
           >
-            Shop Now
-          </Link>
-          <Link
-            href="#wholesale"
-            className="inline-flex items-center gap-2 rounded-lg border-2 border-white/80 bg-transparent px-8 py-3.5 font-sans text-sm font-semibold text-white transition-colors hover:bg-white/15 hover:border-white"
+            Experience the Art of Coffee
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-4 max-w-xl text-lg text-white/90 font-sans mx-auto lg:mx-0"
           >
-            Become a Distributor
-          </Link>
-        </motion.div>
+            From the birthplace of coffee to your cup. Explore our premium selection of handcrafted Ethiopian beans, ethically sourced and roasted to perfection.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-8 flex flex-wrap items-center justify-center gap-4"
+          >
+            <Link
+              href="#products"
+              className="inline-flex items-center gap-2 rounded-lg border-2 border-white bg-transparent px-8 py-3.5 font-sans text-sm font-semibold text-white transition-colors hover:bg-white hover:text-coffee"
+            >
+              Shop Now
+            </Link>
+            <Link
+              href="#wholesale"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/60 bg-transparent px-8 py-3.5 font-sans text-sm font-semibold text-white/95 transition-colors hover:bg-white/10"
+            >
+              Become a Distributor
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
