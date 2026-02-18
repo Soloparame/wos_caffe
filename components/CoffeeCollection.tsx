@@ -49,9 +49,13 @@ export default function CoffeeCollection() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <span className="font-sans text-sm font-medium uppercase tracking-widest text-gold">
-            Coffee Collection
-          </span>
+          <div className="flex w-full max-w-md items-center gap-4 mx-auto">
+            <span className="h-px flex-1 bg-coffee/20" aria-hidden />
+            <span className="font-sans text-sm font-medium uppercase tracking-widest text-gold">
+              Coffee Collection
+            </span>
+            <span className="h-px flex-1 bg-coffee/20" aria-hidden />
+          </div>
           <h2 className="mt-2 font-serif text-3xl font-semibold text-coffee sm:text-4xl">
             Six Origins, One Standard of Excellence
           </h2>

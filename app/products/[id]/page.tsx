@@ -29,7 +29,13 @@ export default function ProductDetailPage({ params }: Props) {
     setMessage(null);
     let session: { user: { id: string } } | null = null;
     try {
-      const { data } = await getSupabase().auth.getSession();
+      const client = getSupabase();
+      if (!client) {
+        setMessage("Auth not configured.");
+        setLoading(false);
+        return;
+      }
+      const { data } = await client.auth.getSession();
       session = data.session;
     } catch {
       setMessage("Auth not configured.");
@@ -41,10 +47,22 @@ export default function ProductDetailPage({ params }: Props) {
       setLoading(false);
       return;
     }
-    const { error } = await getSupabase()
+    const client = getSupabase();
+    if (!client) {
+      setMessage("Auth not configured.");
+      setLoading(false);
+      return;
+    }
+    const userId = session?.user?.id;
+    if (!userId) {
+      setMessage("Auth not configured.");
+      setLoading(false);
+      return;
+    }
+    const { error } = await client
       .from("cart_items")
       .insert({
-        user_id: session.user.id,
+        user_id: userId,
         product_id: product.id,
         quantity: 1,
       });

@@ -23,8 +23,13 @@ export default function CartPage() {
     const load = async () => {
       let sessionData: { session: { user: { id: string } } | null } = { session: null };
       try {
-        const { data } = await getSupabase().auth.getSession();
-        sessionData = data as any;
+        const client = getSupabase();
+        if (!client) {
+          router.replace("/login?redirect=/cart");
+          return;
+        }
+        const { data } = await client.auth.getSession();
+        sessionData = data as { session: { user: { id: string } } | null };
       } catch {
         setLoading(false);
         return;
@@ -34,7 +39,12 @@ export default function CartPage() {
         return;
       }
       try {
-        const { data, error } = await getSupabase()
+        const client = getSupabase();
+        if (!client) {
+          setLoading(false);
+          return;
+        }
+        const { data, error } = await client
           .from("cart_items")
           .select("*")
           .eq("user_id", sessionData.session.user.id);

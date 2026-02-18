@@ -17,12 +17,32 @@ export default function About() {
       className="relative bg-gradient-to-b from-cream to-cream-dark/40 py-24 lg:py-32"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="flex w-full max-w-md mx-auto items-center gap-4"
+        >
+          <span className="h-px flex-1 bg-coffee/20" aria-hidden />
+          <span className="font-sans text-sm font-medium uppercase tracking-widest text-gold">
+            Our Story
+          </span>
+          <span className="h-px flex-1 bg-coffee/20" aria-hidden />
+        </motion.div>
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mt-2 text-center font-serif text-3xl font-semibold text-coffee sm:text-4xl"
+        >
+          Ethiopia — The Birthplace of Coffee
+        </motion.h2>
+        <div className="mt-10 grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="relative aspect-[4/3] overflow-hidden rounded-xl bg-cream shadow-glass"
+            className="relative aspect-[4/3] overflow-hidden rounded-xl bg-cream shadow-glass border border-coffee/10"
           >
             <ImageWithFallback
               src={aboutImage}
@@ -34,22 +54,6 @@ export default function About() {
             />
           </motion.div>
           <div>
-            <motion.span
-              initial={{ opacity: 0, y: 10 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5 }}
-              className="font-sans text-sm font-medium uppercase tracking-widest text-gold"
-            >
-              Our Story
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 10 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="mt-2 font-serif text-3xl font-semibold text-coffee sm:text-4xl"
-            >
-              Ethiopia — The Birthplace of Coffee
-            </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}

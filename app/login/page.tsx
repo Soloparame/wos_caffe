@@ -20,7 +20,13 @@ function LoginContent() {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    const { data, error } = await getSupabase().auth.signInWithPassword({
+    const client = getSupabase();
+    if (!client) {
+      setError("Auth not configured.");
+      setLoading(false);
+      return;
+    }
+    const { data, error } = await client.auth.signInWithPassword({
       email,
       password,
     });
