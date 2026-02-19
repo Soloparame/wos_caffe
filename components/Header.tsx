@@ -14,20 +14,21 @@ const navLinks = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [overHero, setOverHero] = useState(true);
+  const [overHero, setOverHero] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
   const router = useRouter();
   const pathname = usePathname();
 
   useEffect(() => {
+    if (pathname !== "/") {
+      setOverHero(false);
+      return;
+    }
     const hero = document.getElementById("home");
     let cleanup: (() => void) | null = null;
     if (!hero) {
-      const onScroll = () => setOverHero(window.scrollY < 80);
-      onScroll();
-      window.addEventListener("scroll", onScroll, { passive: true });
-      cleanup = () => window.removeEventListener("scroll", onScroll);
+      setOverHero(false);
     } else {
       const observer = new IntersectionObserver(
         ([entry]) => setOverHero(entry.isIntersecting),
